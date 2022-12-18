@@ -1,0 +1,172 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	--bg-app: linear-gradient(
+		45deg,
+		lightblue,
+		lightcyan,
+		lightblue,
+		lightcyan,
+		lightblue
+	);
+	--bg-board: linear-gradient(45deg, #adbce6, lightblue, #adbce6);
+	--bg-square: linear-gradient(
+		45deg,
+		lightblue,
+		lightcyan,
+		white,
+		lightcyan,
+		lightblue
+	);
+}
+
+.App {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	width: 100vw;
+	height: 100vh;
+	padding: 25px;
+	font-family: "Karla", sans-serif;
+	background: var(--bg-app);
+}
+
+.board {
+	display: grid;
+	grid: none / repeat(3, 1fr);
+	gap: 10px;
+	width: 300px;
+	height: 300px;
+	padding: 7px;
+	background: var(--bg-board);
+	border: 8px double #000000;
+	border-radius: 5px;
+	box-shadow: 1px 1px 2px 2px #ffffff;
+}
+
+.track {
+	width: 250px;
+	height: calc(100% - 25px);
+	text-align: center;
+	padding-top: 25px;
+}
+
+@media only screen and (max-width: 600px) {
+	.App {
+		flex-direction: column;
+	}
+
+	.track {
+		height: calc(100vh - 350px);
+		padding-top: 0;
+		overflow-y: auto;
+	}
+}
+
+::-webkit-scrollbar {
+	width: 5px;
+}
+
+::-webkit-scrollbar-track {
+	background: lightcyan;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #a7a7a7;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}
+
+.box,
+.square,
+.streak {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 2rem;
+	font-weight: 600;
+	width: 80px;
+	height: 80px;
+	background: var(--bg-square);
+	border: 1px solid lightcyan;
+	border-radius: 5px;
+	box-shadow: 0px 0px 0px 2px white, 0 2px 0 0 white;
+}
+
+.box:hover {
+	cursor: pointer;
+	box-shadow: 0px 0px 0px 1px lightcyan, 0 1px 0 0 lightcyan;
+}
+
+.streak {
+	background-color: lightgoldenrodyellow;
+}
+
+.winner {
+	color: green;
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+
+.steps {
+	color: blue;
+	text-align: left;
+	padding: 5px;
+	background: var(--bg-board);
+	border-radius: 5px;
+	margin-top: 5px;
+}
+
+.steps.selected {
+	font-weight: 600;
+}
+
+.steps:hover {
+	cursor: pointer;
+	box-shadow: 1px 1px 2px 2px lightblue;
+}
+
+.step {
+	display: none;
+}
+
+.steps:hover .step {
+	display: grid;
+	grid: none / repeat(3, 1fr);
+	gap: 5px;
+}
+
+.next-sort {
+	display: flex;
+	justify-content: space-between;
+}
+
+.next {
+	font-weight: 600;
+}
+
+.sort {
+	font-weight: 600;
+	background-color: aquamarine;
+	padding: 2px 5px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.reset {
+	color: #ffffff;
+	font-size: 1.2rem;
+	font-weight: 600;
+	background-color: green;
+	padding: 5px 10px;
+	border-radius: 5px;
+	margin-top: 10px;
+	cursor: pointer;
+}
